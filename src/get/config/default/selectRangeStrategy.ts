@@ -17,7 +17,7 @@ export function defaultSelectRangeStrategy (
 
 function getMapMinOrZero<T> (map: Map<T, number>): T {
   let minKey: T | undefined
-  let minVal: number | undefined
+  let minVal: number | undefined = Infinity
   for (const [key, val] of map) {
     if (val === 0) {
       return key
