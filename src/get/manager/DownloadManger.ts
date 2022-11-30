@@ -16,9 +16,7 @@ export class DownloadManger {
   constructor (requestConfig: GETRequestConfig, metadata: Metadata) {
     this.requestConfig = requestConfig
     this.metadata = metadata
-    const inputs = this.requestConfig.inputs
-    const workerInputs = [...inputs, ...inputs]
-    this.workers = workerInputs.map(
+    this.workers = requestConfig.inputs.map(
       (input) => new DownloadWorker(input, requestConfig)
     )
     requestConfig.config.logger.info(`Workers Count: ${this.workers.length}`)
