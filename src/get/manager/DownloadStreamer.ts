@@ -29,6 +29,7 @@ export class DownloadStreamer {
 
   abort (reason?: any): void {
     void this.stream.writable.getWriter().abort(reason)
+    this.blobQueue.clear()
   }
 
   private async write (): Promise<void> {
