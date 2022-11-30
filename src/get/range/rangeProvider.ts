@@ -17,7 +17,11 @@ export class RangeProvider {
 
     // Create the ranges
     this.ranges = segmentStrategy(contentLength)
+
     // init downloader counter
+    // allow multiple downloader work on same range
+    // the most quick downloader will finish first
+    // other downloader will be aborted
     for (let i = 0; i < this.ranges.length; i++) {
       this.downloaderCounter.set(i, 0)
     }
