@@ -5,7 +5,8 @@ type RangeIndex = number
 export function defaultSelectRangeStrategy (
   downloaderCounter: Map<RangeIndex, number>
 ): RangeIndex {
-  const minRangeIndex = getMapMinOrZero(downloaderCounter)
+  const sortedDownloaderCounter = new Map([...downloaderCounter].sort())
+  const minRangeIndex = getMapMinOrZero(sortedDownloaderCounter)
   // const firstIndex = downloaderCounter.keys().next().value as number
 
   // if (minRangeIndex - firstIndex > threshold) {
