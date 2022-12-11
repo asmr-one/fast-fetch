@@ -1,9 +1,9 @@
 type Range = [number, number]
 
-const KB = 1024
-const MB = 1024 * 1024
+export const KB = 1024
+export const MB = 1024 * 1024
 
-function defaultSegmentSize (contentLength: number): number {
+export function defaultSegmentSize (contentLength: number): number {
   if (contentLength <= 512 * KB) {
     return contentLength
   } else if (contentLength <= 8 * MB) {
@@ -15,7 +15,7 @@ function defaultSegmentSize (contentLength: number): number {
   }
 }
 
-function getRange (start: number, length: number, contentLength: number): Range {
+export function getRange (start: number, length: number, contentLength: number): Range {
   const end = Math.min(start + length - 1, contentLength - 1)
   return [start, end]
 }
