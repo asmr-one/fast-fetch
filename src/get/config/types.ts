@@ -10,6 +10,7 @@ export type FetchInput = FetchParams[0]
 export type ChunkCallback = (chunk: Blob, range: [number, number], input: FetchInput) => void
 export type SegmentStrategy = (contentLength: number) => Array<[number, number]>
 export type SelectRangeStrategy = (downloaderCounter: Map<number, number>) => number
+export type FinishCallback = () => void
 
 export interface FastFetchGetConfig {
   mirrorURLs?: FetchInput[]
@@ -17,6 +18,7 @@ export interface FastFetchGetConfig {
   retryDelay?: number
   logger?: Partial<Logger>
   chunkCallback?: ChunkCallback
+  finishCallback?: FinishCallback
   segmentStrategy?: SegmentStrategy
   selectRangeStrategy?: SelectRangeStrategy
 }

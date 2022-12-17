@@ -1,5 +1,5 @@
 import { defaultConfig } from './default'
-import type { FastFetchGetConfig, FetchInput, ChunkCallback, SegmentStrategy, Logger, SelectRangeStrategy } from './types'
+import type { FastFetchGetConfig, FetchInput, ChunkCallback, SegmentStrategy, Logger, SelectRangeStrategy, FinishCallback } from './types'
 
 export class Config {
   readonly config: FastFetchGetConfig
@@ -18,6 +18,10 @@ export class Config {
 
   get chunkCallback (): ChunkCallback {
     return this.config.chunkCallback ?? defaultConfig.chunkCallback
+  }
+
+  get finishCallback (): FinishCallback {
+    return this.config.finishCallback ?? defaultConfig.finishCallback
   }
 
   get segmentStrategy (): SegmentStrategy {

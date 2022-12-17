@@ -41,6 +41,7 @@ export class DownloadManger {
     try {
       await Promise.any(promises)
       this.requestConfig.config.logger.info('Fetching done.')
+      this.requestConfig.config.finishCallback()
     } catch {
       this.requestConfig.config.logger.error('All workers failed, stream aborted.')
       // all workers failed

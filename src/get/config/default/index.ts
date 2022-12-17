@@ -8,6 +8,7 @@ export const defaultConfig = {
   maxRetries: 5,
   retryDelay: 3000,
   chunkCallback: () => undefined,
+  finishCallback: () => undefined,
   selectRangeStrategy: defaultSelectRangeStrategy,
   segmentStrategy: defaultSegmentStrategy,
   logger: {
