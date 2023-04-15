@@ -19,6 +19,9 @@ export async function GET (input: FetchInput, init?: GETInit): Promise<Response>
   } catch {
     requestConfig.config.logger.error('Fallback to normal fetch')
     // fallback to normal fetch
-    return await fetch(input, init)
+    return await fetch(input, init).then(res => {
+      requestConfig.config.finishCallback()
+      return res
+    })
   }
 }
